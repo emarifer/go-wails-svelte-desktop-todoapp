@@ -1,0 +1,6 @@
+build/bin
+node_modules
+frontend/dist
+
+tasks_data.db
+tasks.csv
