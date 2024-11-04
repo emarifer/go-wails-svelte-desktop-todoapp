@@ -5,6 +5,7 @@
     import { main } from "../wailsjs/go/models";
 
     export let todos: main.Task[] = [];
+    export let ref = null;
     export let removeTodo = (i: number): void => {};
     export let handleChange = (status: boolean, id: number): void => {};
 </script>
@@ -29,6 +30,7 @@
                             confirmButtonColor: "#3085d6",
                             cancelButtonColor: "#d33",
                             confirmButtonText: "Yes, delete it!",
+                            didClose: () => ref.focus(),
                         }).then((result) => {
                             if (result.value) {
                                 removeTodo(todo.id);
@@ -39,6 +41,7 @@
                                     background: "#1D232A",
                                     color: "#A6ADBA",
                                     confirmButtonColor: "#3085d6",
+                                    didClose: () => ref.focus(),
                                 });
                             }
                         });
@@ -52,4 +55,7 @@
 <!-- 
 https://svelte.dev/tutorial/svelte/keyed-each-blocks
 https://gist.github.com/collardeau/6a0c9777246db4f7b1764b3ccafdf822
+
+HOW TO FOCUS ON INPUT WITH SWEETALERT2:
+https://es.stackoverflow.com/questions/416336/como-hacer-focus-en-input-con-sweetalert2-v10
  -->

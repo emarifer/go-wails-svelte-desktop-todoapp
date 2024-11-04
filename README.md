@@ -6,7 +6,7 @@
     Golang desktop todoapp that uses Wails GUI framework and Svelte to build the frontend.
 </p>
 
-<img src="doc/standing.png" width="35%">
+<img src="doc/standing.png" width="42%">
 
 <br />
 

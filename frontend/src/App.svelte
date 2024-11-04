@@ -10,6 +10,6 @@
   ];
 </script>
 
-<main class="pt-2 pb-8 flex flex-col gap-4">
+<main class="pt-2 pb-8 flex flex-col gap-4 overflow-hidden h-full">
   <Tabs {items} />
 </main>
