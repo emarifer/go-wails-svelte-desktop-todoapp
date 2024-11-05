@@ -1,8 +1,12 @@
 <script>
-    // const trashImg = "src/assets/images/trash.png";
+    import { _ } from "svelte-i18n";
 </script>
 
-<button title="Delete Task" on:click class="btn btn-sm btn-outline btn-error">
+<button
+    title={$_("delete_task")}
+    on:click
+    class="btn btn-sm btn-outline btn-error"
+>
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"

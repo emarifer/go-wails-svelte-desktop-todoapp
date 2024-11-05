@@ -1,5 +1,6 @@
 <script lang="ts">
     import Swal from "sweetalert2";
+    import { _ } from "svelte-i18n";
     import Todo from "./Todo.svelte";
     import RemoveButton from "./RemoveButton.svelte";
     import { main } from "../wailsjs/go/models";
@@ -21,22 +22,22 @@
                 <RemoveButton
                     on:click={() => {
                         Swal.fire({
-                            title: "Do you want to perform this action?",
-                            text: `Are you sure you want to delete the task with ID #${todo.id}?`,
+                            title: $_("alert_title_delete"),
+                            text: `${$_("alert_text_delete")} #${todo.id}?`,
                             icon: "warning",
                             background: "#1D232A",
                             color: "#A6ADBA",
                             showCancelButton: true,
                             confirmButtonColor: "#3085d6",
                             cancelButtonColor: "#d33",
-                            confirmButtonText: "Yes, delete it!",
+                            confirmButtonText: $_("confirm_delete"),
                             didClose: () => ref.focus(),
                         }).then((result) => {
                             if (result.value) {
                                 removeTodo(todo.id);
                                 Swal.fire({
-                                    title: "Deleted!",
-                                    text: "The task has been deleted",
+                                    title: $_("deleted"),
+                                    text: $_("deleted_text"),
                                     icon: "success",
                                     background: "#1D232A",
                                     color: "#A6ADBA",

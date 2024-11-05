@@ -1,0 +1,20 @@
+{
+    "home": "Inicio",
+    "about": "Sobre la App",
+    "placeholder": "Ingresa tarea (mín. 3 carac.)…",
+    "add_task": "Añadir Tarea",
+    "add_some_todos": "Añade algunas tareas",
+    "checkbox": "Cambiar el estado de tu tarea",
+    "delete_task": "Eliminar Tarea",
+    "explanation": "Wails Todoapp es un sencillo gestor de tareas para que no olvides nada",
+    "title_about_page": "Acerca de Wails Todoapp",
+    "more_info": "Más Información en:",
+    "credits": "Hecho por",
+    "incorrect_title": "Entrada incorrecta",
+    "incorrect_text": "Has ingresado menos de 3 caracteres",
+    "alert_title_delete": "¿Quieres realizar esta acción?",
+    "alert_text_delete": "¿Está seguro de que deseas eliminar la tarea con ID",
+    "confirm_delete": "¡Sí, bórrala!",
+    "deleted": "¡Eliminada!",
+    "deleted_text": "La tarea ha sido eliminada"
+}

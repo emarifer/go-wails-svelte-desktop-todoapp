@@ -1,0 +1,20 @@
+{
+    "home": "Home",
+    "about": "About",
+    "placeholder": "Enter a task (min 3 chars)…",
+    "add_task": "Add Task",
+    "add_some_todos": "Add some todos",
+    "checkbox": "Change the status of your task",
+    "delete_task": "Delete Task",
+    "explanation": "Wails Todoapp is a simple task manager so you don't forget anything",
+    "title_about_page": "About",
+    "more_info": "More Info:",
+    "credits": "Made by",
+    "incorrect_title": "Incorrect entry",
+    "incorrect_text": "You have entered less than 3 characters",
+    "alert_title_delete": "Do you want to perform this action?",
+    "alert_text_delete": "Are you sure you want to delete the task with ID",
+    "confirm_delete": "Yes, delete it!",
+    "deleted": "Deleted!",
+    "deleted_text": "The task has been deleted"
+}

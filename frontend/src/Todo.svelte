@@ -1,5 +1,6 @@
 <script lang="ts">
     import { main } from "../wailsjs/go/models";
+    import { _ } from "svelte-i18n";
 
     export let task = new main.Task();
     export let checked = task.status;
@@ -10,7 +11,7 @@
     <div class="flex gap-2 justify-start items-center w-fit">
         <label class="cursor-pointer label">
             <input
-                title="Change the status of your task"
+                title={$_("checkbox")}
                 bind:checked
                 on:change={() => toggle(checked, task.id)}
                 type="checkbox"

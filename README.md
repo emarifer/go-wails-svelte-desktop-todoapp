@@ -20,7 +20,7 @@
 
 <div align="center" style="margin-bottom: 16px;">
 
-<img src="doc/screenshot-01.gif" width="60%">
+<img src="doc/screenshot-01.gif" width="65%">
 
 </div>
 
@@ -30,6 +30,7 @@
     - **[sqltocsv](https://github.com/joho/sqltocsv)** a library designed to let you easily turn any arbitrary sql.Rows result from a query into a CSV file with a minimum of fuss.
     - **[csv](https://github.com/earthboundkid/csv)** a Golang CSV reader like Python's DictReader, which converts the read .csv file into a `[]map[string]string` which is later used to create the query that will populate a new table in the database.
 - [x] **Using the [SevelteJS](https://svelte.dev/) frontend framework:** `Sevelte` is a UI framework to let you write breathtakingly concise components that do minimal work in the browser. It is the framework mainly recommended for the creation of GUIs by the creators of `Wails` given its ease of use, mainly in combination with `TypeScript`.
+- [x] **Using the [svelte-i18n](https://github.com/kaisermann/svelte-i18n) library:** `svelte-i18n` helps you localize your app using the reactive tools `Svelte` provides. By using `stores` to keep track of the current `locale`, `dictionary` of messages and to `format` messages, we keep everything neat, in sync and easy to use on your svelte files. `svelte-i18n` makes translation management simple. It does so by using JSON files that help your app easily switch between different languages. Indeed, the use of the `Wails` framework, which uses Web interfaces, greatly facilitates some common tasks in desktop applications such as their translation. Some online tools can help you with JSON file translation, such as [`Translate i18next JSON resources/files`](https://translate.i18next.com/).
 - [x] **Using [`Tailwindcss`](https://tailwindcss.com/) and its plugin [`daisyUI`](https://daisyui.com/):** to allow you to style your application easily and quickly, and they also integrate seamlessly with `Svelte` and `Wails`.
 
 
