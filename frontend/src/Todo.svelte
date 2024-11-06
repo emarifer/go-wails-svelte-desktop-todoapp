@@ -9,20 +9,23 @@
 
 <div class="flex justify-between items-center w-full">
     <div class="flex gap-2 justify-start items-center w-fit">
-        <label class="cursor-pointer label">
+        <label
+            class="cursor-pointer label tooltip tooltip-right"
+            data-tip={$_("checkbox")}
+        >
             <input
-                title={$_("checkbox")}
                 bind:checked
                 on:change={() => toggle(checked, task.id)}
                 type="checkbox"
                 class="checkbox checkbox-info"
             />
         </label>
-        <div
-            class="block badge badge-accent badge-outline max-w-56 text-ellipsis overflow-hidden whitespace-nowrap text-left px-2"
-            title={task.title}
-        >
-            {task.title}
+        <div class="tooltip tooltip-bottom" data-tip={task.title}>
+            <div
+                class="block badge badge-accent badge-outline max-w-56 text-ellipsis overflow-hidden whitespace-nowrap text-left px-2"
+            >
+                {task.title}
+            </div>
         </div>
     </div>
     <span class="text-xs font-light text-lime-300 pr-8">{task.created_at}</span>

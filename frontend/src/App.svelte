@@ -3,6 +3,7 @@
   import Tab1 from "./Home.svelte";
   import Tab2 from "./About.svelte";
   import Tabs from "./Tabs.svelte";
+  import Menu from "./Menu.svelte";
 
   // List of tab items with labels, values and assigned components
   let items = [
@@ -10,7 +11,7 @@
     { label: $_("about"), value: 2, component: Tab2 },
   ];
 
-  let selected = "Select language";
+  let selected = "🌐 Language";
   const languages = [
     { code: "en", name: "English" },
     { code: "es", name: "Español" },
@@ -27,12 +28,13 @@
 </script>
 
 <main class="pt-2 pb-8 flex flex-col gap-4 overflow-hidden h-full relative">
+  <Menu />
   <select
     bind:value={selected}
     on:change={() => handleChange(selected["code"])}
     class="absolute top-2 right-2 select select-primary w-fit max-w-xs"
   >
-    <option disabled selected>Select language</option>
+    <option disabled selected>🌐 Language</option>
     {#each languages as value}<option {value}>{value.name}</option>{/each}
   </select>
   <Tabs {items} />

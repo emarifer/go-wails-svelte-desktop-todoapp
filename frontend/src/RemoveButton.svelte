@@ -3,9 +3,9 @@
 </script>
 
 <button
-    title={$_("delete_task")}
     on:click
-    class="btn btn-sm btn-outline btn-error"
+    class="btn btn-sm btn-outline btn-error tooltip tooltip-left"
+    data-tip={$_("delete_task")}
 >
     <svg
         xmlns="http://www.w3.org/2000/svg"

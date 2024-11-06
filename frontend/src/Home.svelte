@@ -77,8 +77,8 @@
             autofocus
         />
         <button
-            title={$_("add_task")}
-            class="btn btn-outline btn-primary"
+            data-tip={$_("add_task")}
+            class="btn btn-outline btn-primary tooltip"
             on:click={addTodo}
         >
             <svg

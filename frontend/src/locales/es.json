@@ -16,5 +16,16 @@
     "alert_text_delete": "¿Está seguro de que deseas eliminar la tarea con ID",
     "confirm_delete": "¡Sí, bórrala!",
     "deleted": "¡Eliminada!",
-    "deleted_text": "La tarea ha sido eliminada"
+    "deleted_text": "La tarea ha sido eliminada",
+    "delete_all_data": "Eliminar Todo",
+    "export_data": "Exportar Datos",
+    "import_data": "Importar Datos",
+    "quit": "Salir",
+    "erasing": "Eliminación de Datos",
+    "erasing_text": "¿Estás seguro de que deseas eliminar todos tus datos? Si no los has exportado, los perderás de forma irreversible.",
+    "erasing_confirm": "Sí, hazlo",
+    "data_export": "Exportación de Datos",
+    "data_export_text": "¡Los datos se han exportado correctamente!",
+    "import_title": "Importación de Datos",
+    "import_text": "Esta acción sobrescribirá los datos anteriores."
 }

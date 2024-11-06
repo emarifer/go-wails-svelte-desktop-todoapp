@@ -13,7 +13,7 @@
 
 <!-- TODO: should find a way to invoke removeMe or get the index after button click -->
 <ul
-    class="w-4/5 mx-auto max-h-64 overflow-y-auto flex flex-col gap-2 bg-slate-700 rounded-xl py-4 px-12"
+    class="w-4/5 mx-auto max-h-[293px] overflow-y-auto flex flex-col gap-2 bg-slate-700 rounded-xl py-4 px-12"
 >
     {#each todos as todo (todo.id)}
         <li class="block">

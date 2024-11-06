@@ -12,6 +12,7 @@ import (
 
 	"github.com/earthboundkid/csv/v2"
 	"github.com/joho/sqltocsv"
+	"github.com/wailsapp/wails/v2/pkg/runtime"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -66,6 +67,27 @@ func NewApp() *App {
 // so we can call the runtime methods
 func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
+
+	// Setting up event listeners
+	runtime.EventsOn(a.ctx, "delete-all", func(optionalData ...interface{}) {
+		a.dropTable()
+		runtime.WindowReload(a.ctx)
+	})
+
+	runtime.EventsOn(a.ctx, "export", func(optionalData ...interface{}) {
+		if a.exportData() {
+			runtime.EventsEmit(a.ctx, "exported")
+		}
+	})
+
+	runtime.EventsOn(a.ctx, "import", func(optionalData ...interface{}) {
+		a.importData()
+		runtime.WindowReload(a.ctx)
+	})
+
+	runtime.EventsOn(a.ctx, "quit", func(optionalData ...interface{}) {
+		runtime.Quit(a.ctx)
+	})
 }
 
 // beforeClose is called when the application is about to quit,

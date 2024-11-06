@@ -16,5 +16,16 @@
     "alert_text_delete": "Are you sure you want to delete the task with ID",
     "confirm_delete": "Yes, delete it!",
     "deleted": "Deleted!",
-    "deleted_text": "The task has been deleted"
+    "deleted_text": "The task has been deleted",
+    "delete_all_data": "Delete all Data",
+    "export_data": "Export Data",
+    "import_data": "Import Data",
+    "quit": "Quit",
+    "erasing": "Erasing all Data",
+    "erasing_text": "Are you sure you want to delete all your data? If you haven't exported it, you will lose it irreversibly.",
+    "erasing_confirm": "Yes, do it",
+    "data_export": "Data export",
+    "data_export_text": "The data has been exported successfully!",
+    "import_title": "Importing data",
+    "import_text": "This action will overwrite the previous data."
 }
