@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+  import { GetLanguage, SaveLanguage } from "../wailsjs/go/main/App";
   import { locale, _ } from "svelte-i18n";
   import Tab1 from "./Home.svelte";
   import Tab2 from "./About.svelte";
@@ -11,6 +13,18 @@
     { label: $_("about"), value: 2, component: Tab2 },
   ];
 
+  onMount(async () => {
+    GetLanguage().then((result) => {
+      if (result.length != 0) {
+        locale.set(result);
+        items = [
+          { label: $_("home"), value: 1, component: Tab1 },
+          { label: $_("about"), value: 2, component: Tab2 },
+        ];
+      }
+    });
+  });
+
   let selected = "🌐 Language";
   const languages = [
     { code: "en", name: "English" },
@@ -19,6 +33,7 @@
   const handleChange = (newLocale: string) => {
     console.log("Language code selected:", newLocale);
     locale.set(newLocale);
+    SaveLanguage(newLocale);
     items = [
       { label: $_("home"), value: 1, component: Tab1 },
       { label: $_("about"), value: 2, component: Tab2 },

@@ -6,6 +6,10 @@ export function AddTodo(arg1:string):Promise<Array<main.Task>>;
 
 export function GetAllTodos():Promise<Array<main.Task>>;
 
+export function GetLanguage():Promise<string>;
+
 export function RemoveTodo(arg1:number):Promise<Array<main.Task>>;
+
+export function SaveLanguage(arg1:string):Promise<void>;
 
 export function UpadateTodo(arg1:boolean,arg2:number):Promise<Array<main.Task>>;

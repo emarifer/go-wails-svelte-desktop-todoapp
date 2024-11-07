@@ -18,9 +18,10 @@ import (
 )
 
 const (
-	DB_NAME       = "tasks_data.db"
-	TABLE_NAME    = "tasks"
-	EXPORTED_DATA = "tasks.csv"
+	DB_NAME        = "tasks_data.db"
+	TABLE_NAME     = "tasks"
+	TABLE_SETTINGS = "settings"
+	EXPORTED_DATA  = "tasks.csv"
 )
 
 type Task struct {
@@ -53,6 +54,18 @@ func NewApp() *App {
 		status BOOLEAN DEFAULT(FALSE),
         created_at TEXT
     )`, TABLE_NAME)
+
+	// Create table if not exists
+	_, err = db.Exec(sqlQuery)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	sqlQuery = fmt.Sprintf(
+		`CREATE TABLE IF NOT EXISTS %s (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        language VARCHAR(16) NOT NULL
+    )`, TABLE_SETTINGS)
 
 	// Create table if not exists
 	_, err = db.Exec(sqlQuery)
@@ -138,6 +151,50 @@ func (a *App) RemoveTodo(id int) []Task {
 	// writeData()
 
 	return a.listTodos()
+}
+
+func (a *App) GetLanguage() string {
+	var language string
+
+	sqlQuery := fmt.Sprintf("SELECT language FROM %s ORDER BY id LIMIT 1", TABLE_SETTINGS)
+	row, err := a.db.Query(sqlQuery)
+	if err != nil {
+		return language
+	}
+	// We close the resource
+	defer row.Close()
+
+	if row.Next() {
+		row.Scan(&language)
+	}
+
+	return language
+}
+
+func (a *App) SaveLanguage(l string) {
+	if a.GetLanguage() == "" {
+		sqlQuery := fmt.Sprintf("INSERT INTO %s (language) VALUES (?)", TABLE_SETTINGS)
+		_, err := a.db.Exec(sqlQuery, l)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		return
+	}
+
+	sqlQuery := fmt.Sprintf(`UPDATE %s SET language = ? WHERE id=1;`, TABLE_SETTINGS)
+
+	stmt, err := a.db.Prepare(sqlQuery)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer stmt.Close()
+
+	_, err = stmt.Exec(l)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func (a *App) close() {
@@ -300,6 +357,9 @@ func (a *App) importData() bool {
 /* REFERENCES:
 https://github.com/Carl0sPineda/WailsSqlite
 https://github.com/search?q=wails%20sqlite&type=repositories
+
+LIMIT RESULTS RETURNED TO THE FIRST RECORD IN THE DB SQLITE3:
+https://www.sqlitetutorial.net/sqlite-update/
 */
 
 /* func readDb(f *os.File) []Task {
