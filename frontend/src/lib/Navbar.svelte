@@ -1,39 +1,44 @@
 <script lang="ts">
-    import { Link } from "svelte-routing";
-    import type { GetPropsParams } from "../../node_modules/svelte-routing/types/Link";
+    import { link } from "svelte-spa-router";
+    import active from "svelte-spa-router/active";
     import { _ } from "svelte-i18n";
 
-    const getPropsLink =
-        (path: string) =>
-        ({ href, isPartiallyCurrent, isCurrent }: GetPropsParams) => {
-            const isActive =
-                href === path ? isCurrent : isPartiallyCurrent || isCurrent;
-            return isActive
-                ? {
-                      class: "[&>span]:text-slate-300 bg-primary rounded-t -mb-[1px]",
-                  }
-                : { class: "-mb-[1px]" };
-        };
+    const activeStyle =
+        "[&>span]:text-slate-300 bg-primary rounded-t -mb-[1px]";
+    const inactiveStyle = "-mb-[1px]";
 </script>
 
 <nav class="flex flex-wrap pl-2 mb-0 list-none border-b border-primary">
-    <Link getProps={getPropsLink("/")} to="/">
+    <a
+        href="/"
+        use:link
+        use:active={{
+            className: activeStyle,
+            inactiveClassName: inactiveStyle,
+        }}
+    >
         <span
             class="block py-1 px-4 border border-transparent rounded-t hover:border-b-primary hover:border-t-slate-300 hover:border-x-slate-300"
         >
             {$_("home")}
         </span>
-    </Link>
-
-    <Link getProps={getPropsLink("/about")} to="/about">
+    </a>
+    <a
+        href="/about"
+        use:link
+        use:active={{
+            className: activeStyle,
+            inactiveClassName: inactiveStyle,
+        }}
+    >
         <span
             class="block py-1 px-4 border border-transparent rounded-t hover:border-b-primary hover:border-t-slate-300 hover:border-x-slate-300"
         >
             {$_("about")}
         </span>
-    </Link>
+    </a>
 </nav>
 
 <!-- ACTIVE CLASS FOR A LINK:
-    https://github.com/EmilTholin/svelte-routing/issues/63
+    https://github.com/ItalyPaleAle/svelte-spa-router?tab=readme-ov-file#highlight-active-links
 -->
