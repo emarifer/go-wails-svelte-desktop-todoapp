@@ -10,7 +10,7 @@
 
 <br />
 
-![GitHub License](https://img.shields.io/github/license/emarifer/go-wails-svelte-desktop-todoapp) ![Static Badge](https://img.shields.io/badge/Go-%3E=1.23-blue)
+![GitHub License](https://img.shields.io/github/license/emarifer/go-wails-svelte-desktop-todoapp) ![Static Badge](https://img.shields.io/badge/Go-%3E=1.20-blue) ![Static Badge](https://img.shields.io/badge/Node-%3E=15-SpringGreen)
 
 </div>
 
@@ -70,6 +70,11 @@ This will build the binary into the `build/bin` folder. However, for choosing ot
 
 >[!NOTE]
 >***As mentioned above I have created for the Linux version a compressed `.tar.xz` file with the application and a Makefile that acts as an 'installer' that installs the executable, a `desktop entry` to create an entry in the `Start Menu` and the corresponding application icon. For the Windows version, the binary is simply compressed as a `.zip` inside a folder called `dist/`. If you prefer, you can generate both compressed files by running the project's `Makefile`: "make create-bundles"***
+
+>[!NOTE]
+>***Starting from version `v1.4.0`, 2 significant changes have been made:***
+>- ***Added the Svelte `svelte-routing` library. This makes it easier to animate between transitions in a cleaner and smoother way than it was done before.***
+>- ***Refactored the files in the `frontend` folder to use `Svelte 5`. To do this, the folder was generated with the command `npm create vite@latest frontend -- --template svelte-ts` and replaced in the project. With this, among other things, you can use runes, primitives that allow you to explicitly declare the reactive state.***
 
 ---
 

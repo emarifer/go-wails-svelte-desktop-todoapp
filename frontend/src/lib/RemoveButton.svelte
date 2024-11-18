@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
     import { _ } from "svelte-i18n";
 </script>
 
+<!-- svelte-ignore a11y_consider_explicit_label -->
 <button
     on:click
     class="btn btn-sm btn-outline btn-error tooltip tooltip-left"

@@ -1,4 +1,5 @@
-import './style.css'
+import { mount } from 'svelte'
+import './app.css'
 import App from './App.svelte'
 import { addMessages, init } from "svelte-i18n";
 import en from './locales/en.json';
@@ -12,14 +13,8 @@ init({
   initialLocale: 'en',
 });
 
-const app = new App({
-  target: document.getElementById('app')
+const app = mount(App, {
+  target: document.getElementById('app')!,
 })
 
-
-
 export default app
-
-/* REFERENCES:
-https://stackoverflow.com/questions/66145620/svelte-i18n-with-snowpack-shows-blank-page-without-errors
-*/

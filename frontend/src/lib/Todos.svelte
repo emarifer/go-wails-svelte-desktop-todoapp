@@ -3,12 +3,21 @@
     import { _ } from "svelte-i18n";
     import Todo from "./Todo.svelte";
     import RemoveButton from "./RemoveButton.svelte";
-    import { main } from "../wailsjs/go/models";
+    import { main } from "../../wailsjs/go/models";
 
-    export let todos: main.Task[] = [];
-    export let ref = null;
-    export let removeTodo = (i: number): void => {};
-    export let handleChange = (status: boolean, id: number): void => {};
+    interface Props {
+        todos: main.Task[];
+        inputRef: HTMLInputElement | null;
+        removeTodo: (id: number) => void;
+        handleChange: (status: boolean, id: number) => void;
+    }
+
+    let {
+        todos = [],
+        inputRef = null,
+        removeTodo = () => {},
+        handleChange = () => {},
+    }: Props = $props();
 </script>
 
 <!-- TODO: should find a way to invoke removeMe or get the index after button click -->
@@ -31,7 +40,7 @@
                             confirmButtonColor: "#3085d6",
                             cancelButtonColor: "#d33",
                             confirmButtonText: $_("confirm_delete"),
-                            didClose: () => ref.focus(),
+                            didClose: () => inputRef?.focus(),
                         }).then((result) => {
                             if (result.value) {
                                 removeTodo(todo.id);
@@ -42,7 +51,7 @@
                                     background: "#1D232A",
                                     color: "#A6ADBA",
                                     confirmButtonColor: "#3085d6",
-                                    didClose: () => ref.focus(),
+                                    didClose: () => inputRef?.focus(),
                                 });
                             }
                         });

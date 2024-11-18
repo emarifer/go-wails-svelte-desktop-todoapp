@@ -1,7 +1,7 @@
 <script lang="ts">
     import Swal from "sweetalert2";
     import { _ } from "svelte-i18n";
-    import { EventsEmit, EventsOn } from "../wailsjs/runtime/runtime";
+    import { EventsEmit, EventsOn } from "../../wailsjs/runtime/runtime";
 
     EventsOn("exported", () =>
         Swal.fire({
@@ -69,12 +69,14 @@
     }
 </script>
 
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
+<!-- svelte-ignore a11y_consider_explicit_label -->
+<!-- svelte-ignore a11y_missing_attribute -->
 <ul class="absolute top-14 left-2 menu bg-base-200 rounded-box">
     <li>
-        <!-- svelte-ignore a11y-missing-attribute -->
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <a
-            on:click={deleteAll}
+            onclick={deleteAll}
             class="tooltip tooltip-right"
             data-tip={`${$_("delete_all_data")} 'F12'`}
         >
@@ -95,13 +97,7 @@
         </a>
     </li>
     <li>
-        <!-- svelte-ignore a11y-missing-attribute -->
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <a
-            on:click={() => EventsEmit("export")}
-            class="tooltip tooltip-right"
-            data-tip={`${$_("export_data")} 'F1'`}
-        >
+        <a class="tooltip tooltip-right" data-tip={`${$_("export_data")} 'F1'`}>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -121,10 +117,8 @@
         </a>
     </li>
     <li>
-        <!-- svelte-ignore a11y-missing-attribute -->
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <a
-            on:click={importData}
+            onclick={importData}
             class="tooltip tooltip-right"
             data-tip={`${$_("import_data")} 'F2'`}
         >
@@ -147,10 +141,8 @@
         </a>
     </li>
     <li>
-        <!-- svelte-ignore a11y-missing-attribute -->
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <a
-            on:click={() => EventsEmit("quit")}
+            onclick={() => EventsEmit("quit")}
             class="tooltip tooltip-right"
             data-tip={`${$_("quit")} 'Escape'`}
         >

@@ -1,10 +1,18 @@
 <script lang="ts">
-    import { main } from "../wailsjs/go/models";
     import { _ } from "svelte-i18n";
+    import { main } from "../../wailsjs/go/models";
 
-    export let task = new main.Task();
-    export let checked = task.status;
-    export let toggle = (st: boolean, id: number) => {};
+    interface Props {
+        task: main.Task;
+        checked?: boolean;
+        toggle: (status: boolean, id: number) => void;
+    }
+
+    let {
+        task = new main.Task(),
+        checked = task.status,
+        toggle = () => {},
+    }: Props = $props();
 </script>
 
 <div class="flex justify-between items-center w-full">
@@ -15,7 +23,7 @@
         >
             <input
                 bind:checked
-                on:change={() => toggle(checked, task.id)}
+                onchange={() => toggle(checked, task.id)}
                 type="checkbox"
                 class="checkbox checkbox-info"
             />
