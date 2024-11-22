@@ -2,6 +2,7 @@
     import { onMount } from "svelte";
     import { fade, fly } from "svelte/transition";
     import { _ } from "svelte-i18n";
+    import { BrowserOpenURL } from "../../wailsjs/runtime/runtime";
     import octocat from "../assets/images/github_octocat.png";
     import logo from "../assets/images/logo-universal.png";
 
@@ -32,6 +33,10 @@
                 </h3>
                 <p class="text-slate-600 font-medium mt-4">{$_("more_info")}</p>
                 <a
+                    onclick={() =>
+                        BrowserOpenURL(
+                            "https://github.com/emarifer/go-wails-svelte-desktop-todoapp",
+                        )}
                     class="hover:text-sky-500 ease-in duration-300"
                     href="http://"
                     target="_blank"
